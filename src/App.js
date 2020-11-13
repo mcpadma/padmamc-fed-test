@@ -1,14 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
-import UserCard from './components/UserCard';
+import UserCard from "./components/UserCard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header"> */}
+      <div className="container">
         <UserCard></UserCard>
-      </header>
+      </div>
+
+      {/* </header> */}
     </div>
   );
 }
