@@ -1,16 +1,4 @@
-/* .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 40%;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 5px 6px 7px 7px;
-    color: var(--black-500);
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  } */
+
 
   .userImg{
     float: left;
@@ -27,7 +15,7 @@
     font-size: 14px;
   }
   .userAddr{
-    font-size: 12px;
+    
     margin-bottom: 2px;
   }
 
@@ -44,6 +32,7 @@
     /* background-color: lightblue; */
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 15px;
     border-radius: 5px;
   }
   .blue-line:hover {
@@ -61,8 +50,8 @@
   .card1{
     /* height: 400px; */
     /* width: 50%; */
-    width: 48px;
-    height: 48px;
+    width: 70px;
+    height: 70px;
     /* background-color: grey; */
     /* margin-left: 10px; */
     margin-right: 10px;
@@ -92,4 +81,8 @@
     width: 48px;
     height: 48px;
     /* background: #febe8c; */
+  }
+  .card-header {
+    font-size: 20px;
+    margin: 0;
   }

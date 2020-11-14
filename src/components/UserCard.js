@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import axios from "../axios";
-import axios from "axios";
+import axios from "../axios";
+// import axios from "axios";
 import "./UserCard.css";
 
 function UserCard() {
@@ -8,50 +8,41 @@ function UserCard() {
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(async () => {
-    const response = await axios
-      .get("https://randomuser.me/api")
-      .then(response => response.data.results);
+    const response = await axios.get().then(response => response.data.results);
     // .catch(e => setErrorMsg(response.error));
-    console.log(response);
-    //debugger;
+
     setUserResponse(response);
-    console.log("HIIIIIIIIIIII", response[0].gender);
-    console.log("Heeeeeeeeeeeee", response[0].name);
-    //console.log("Hoooooooooooooo", userResponse[0].location);
   }, []);
 
+  async function loadHandler(e) {
+    debugger;
+    const response = await axios
+      .get("/?results=5")
+      .then(response => response.data.results);
+    // .catch(e => setErrorMsg(response.error));
+
+    setUserResponse(userResponse.concat(response));
+  }
   return (
     <div>
-      <h1>Welcome to UserCard</h1>
-      {/* {userResponse.map((v, k) => {
-        return (
-          <div className="card">
-            <div className="userImg">
-              <img src={v.picture.thumbnail}></img>
-              
-              <div className="userDetails">
-                <a>{v.name.first}</a>
-                <span className="userAddr">{v.location.city}</span>
-              </div>
-            </div>
-            
-          </div>
-        );
-        
-      })} */}
+      <h1>RandomAPI User Card</h1>
       {userResponse.map((v, k) => {
         return (
-          <div class="blue-line">
-            <div class="card-container">
-              <div class="card1">
-                <div class="img">
-                  <img src={v.picture.thumbnail}></img>
+          <div key={k} className="blue-line">
+            <div className="card-container">
+              <div className="card1">
+                <div className="img">
+                  <img src={v.picture.medium}></img>
                 </div>
               </div>
-              <div class="card2">
-                <div class="">
-                  <a>{v.name.first}</a>
-                  <div className="userAddr">{v.location.city}</div>
+              <div className="card2">
+                <div className="">
+                  <h3 className="card-header">
+                    {v.name.title} {v.name.first} {v.name.last}
+                  </h3>
+                  <div className="userAddr">
+                    {v.location.city},{v.location.country}
+                  </div>
                   <div className="userAddr">{v.registered.date}</div>
                 </div>
               </div>
@@ -59,6 +50,7 @@ function UserCard() {
           </div>
         );
       })}
+      <button onClick={loadHandler}>Load more</button>
     </div>
   );
 }
